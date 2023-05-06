@@ -3,6 +3,14 @@
   "version": "1.0.3",
   "description": "Firebase Authentication",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fiboup/edgelibs.git",
+    "directory": "packages/firebase-auth"
+  },
+  "bugs": {
+    "url": "https://github.com/fiboup/edgelibs/issues"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

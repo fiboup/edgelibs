@@ -1,5 +1,11 @@
 # @fiboup/hono-firebase-auth
 
+## 1.0.2
+
+### Patch Changes
+
+- [hono-firebase-auth] add readme for hono-firebase-auth package
+
 ## 1.0.1
 
 ### Patch Changes

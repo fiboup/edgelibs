@@ -1,8 +1,16 @@
 {
   "name": "@fiboup/hono-firebase-auth",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Firebase Authentication for Hono",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fiboup/edgelibs.git",
+    "directory": "packages/hono-firebase-auth"
+  },
+  "bugs": {
+    "url": "https://github.com/fiboup/edgelibs/issues"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
