@@ -1,0 +1,18 @@
+{
+  "name": "@fiboup/edgelibs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:firebase-auth": "pnpm -r --filter=./packages/firebase-auth run build"
+  },
+  "keywords": [],
+  "author": "Hieu Tran <hieutran.fu@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@changesets/cli": "^2.26.1",
+    "eslint": "^8.39.0",
+    "typescript": "^5.0.4",
+    "unbuild": "^1.2.1"
+  }
+}

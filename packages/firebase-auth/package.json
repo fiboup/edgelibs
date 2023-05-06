@@ -1,0 +1,33 @@
+{
+  "name": "@fiboup/firebase-auth",
+  "version": "1.0.0",
+  "description": "Firebase Authentication",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "test": "vitest"
+  },
+  "keywords": [
+    "firebase",
+    "auth",
+    "cloud identity",
+    "identity platform",
+    "CIAM"
+  ],
+  "author": "Hieu Tran <hieutran.fu@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jose": "^4.14.4"
+  }
+}
