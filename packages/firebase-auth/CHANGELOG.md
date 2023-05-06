@@ -1,5 +1,11 @@
 # @fiboup/firebase-auth
 
+## 1.0.1
+
+### Patch Changes
+
+- [firebase-auth] export missing JWT verify function
+
 ## 1.0.0
 
 ### Major Changes
