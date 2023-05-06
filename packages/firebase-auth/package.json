@@ -1,6 +1,6 @@
 {
   "name": "@fiboup/firebase-auth",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Firebase Authentication",
   "type": "module",
   "exports": {

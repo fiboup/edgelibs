@@ -3,11 +3,24 @@ import {
   fetchGooglePublicKeys,
   verifyAndDecodeJwt,
 } from "@fiboup/firebase-auth";
+import type { DecodedIdToken } from "@fiboup/firebase-auth";
 
 const tokenPrefix = "Bearer ";
+const defaultCurrentUserContextKey = "currentUser";
 
 export type FirebaseAuthConfig = {
   projectId: string;
+  transformCurrentUser?: <T>(decodedToken: DecodedIdToken) => T;
+  // set to empty string ("") to disable setting the current user context variable
+  currentUserContextKey?: string;
+};
+
+export type DefaultFirebaseAuthInjectedVariables = {
+  currentUser?: DecodedIdToken;
+};
+
+export const defaultTransformCurrentUser = (decodedToken: DecodedIdToken) => {
+  return decodedToken;
 };
 
 export const validateFirebaseAuth = (
@@ -21,12 +34,23 @@ export const validateFirebaseAuth = (
     const token = tokenHeader.substring(tokenPrefix.length);
     const googlePublicKeys = await fetchGooglePublicKeys();
 
-    const currentUser = await verifyAndDecodeJwt(
+    const decodedToken = await verifyAndDecodeJwt(
       token,
       googlePublicKeys,
       config.projectId
     );
-    c.set("currentUser", currentUser);
+
+    const transformCurrentUser =
+      config.transformCurrentUser || defaultTransformCurrentUser;
+    const currentUser = transformCurrentUser(decodedToken);
+
+    if (config.currentUserContextKey !== "") {
+      c.set(
+        config.currentUserContextKey ?? defaultCurrentUserContextKey,
+        currentUser
+      );
+    }
+
     await next();
   };
 };
