@@ -20,6 +20,15 @@ importers:
     dependencies:
       jose: 4.14.4
 
+  packages/hono-firebase-auth:
+    specifiers:
+      '@fiboup/firebase-auth': workspace:^1.0.2
+      hono: ^3.1.8
+    dependencies:
+      '@fiboup/firebase-auth': link:../firebase-auth
+    devDependencies:
+      hono: 3.1.8
+
 packages:
 
   /@ampproject/remapping/2.2.1:
@@ -1798,6 +1807,11 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
+    dev: true
+
+  /hono/3.1.8:
+    resolution: {integrity: sha512-7UZQWuQaqn8MENla09Jdb28qiR5uXii4xR/TNQuVNxZ3+T+ZixWiQUpJG85BXNqhJ5s1SkPbLGjbc3L5wKsv5g==}
+    engines: {node: '>=16.0.0'}
     dev: true
 
   /hookable/5.5.3:

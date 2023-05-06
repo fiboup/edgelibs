@@ -1,5 +1,11 @@
 # @fiboup/firebase-auth
 
+## 1.0.2
+
+### Patch Changes
+
+- [firebase-auth] export types in package.json
+
 ## 1.0.1
 
 ### Patch Changes

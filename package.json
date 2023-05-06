@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:firebase-auth": "pnpm -r --filter=./packages/firebase-auth run build"
+    "build:firebase-auth": "pnpm -r --filter=./packages/firebase-auth run build",
+    "build:hono-firebase-auth": "pnpm -r --filter=./packages/hono-firebase-auth run build"
   },
   "keywords": [],
   "author": "Hieu Tran <hieutran.fu@gmail.com>",

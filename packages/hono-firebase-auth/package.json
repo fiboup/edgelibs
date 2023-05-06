@@ -1,7 +1,7 @@
 {
-  "name": "@fiboup/firebase-auth",
-  "version": "1.0.2",
-  "description": "Firebase Authentication",
+  "name": "@fiboup/hono-firebase-auth",
+  "version": "1.0.0",
+  "description": "Firebase Authentication for Hono",
   "type": "module",
   "exports": {
     ".": {
@@ -34,11 +34,18 @@
     "auth",
     "cloud identity",
     "identity platform",
-    "CIAM"
+    "CIAM",
+    "hono"
   ],
   "author": "Hieu Tran <hieutran.fu@gmail.com>",
   "license": "MIT",
+  "devDependencies": {
+    "hono": "^3.1.8"
+  },
+  "peerDependencies": {
+    "hono": "^3.1.8"
+  },
   "dependencies": {
-    "jose": "^4.14.4"
+    "@fiboup/firebase-auth": "workspace:^1.0.2"
   }
 }
