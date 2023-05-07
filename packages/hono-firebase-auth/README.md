@@ -58,7 +58,9 @@ const app = new Hono();
 
 app.onError((err, c) => {
   if (err instanceof JwtDecodeError) {
-    return err.getResponse();
+    return new Response(err.message, {
+      status: 401,
+    });
   }
   console.log(err);
   return new Response("Uncaught exception", {
@@ -144,7 +146,7 @@ app.use(
 
 ```
 
-To make your custom current user context, don't forget to write your custom Hono variable
+To make your custom current user context type-safe, don't forget to write your custom Hono variable
 
 
 ```ts

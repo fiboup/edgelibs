@@ -3,7 +3,7 @@ import {
   fetchGooglePublicKeys,
   verifyAndDecodeJwt,
 } from "@fiboup/firebase-auth";
-import type { DecodedIdToken } from "@fiboup/firebase-auth";
+import type { DecodedIdToken, JwtDecodeError } from "@fiboup/firebase-auth";
 
 const tokenPrefix = "Bearer ";
 const defaultCurrentUserContextKey = "currentUser";
@@ -54,3 +54,5 @@ export const validateFirebaseAuth = (
     await next();
   };
 };
+
+export type { JwtDecodeError, DecodedIdToken };
