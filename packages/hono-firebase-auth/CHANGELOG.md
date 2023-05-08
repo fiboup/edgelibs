@@ -1,5 +1,11 @@
 # @fiboup/hono-firebase-auth
 
+## 1.0.4
+
+### Patch Changes
+
+- [hono-firebase-auth] fix JWTDecodeError export
+
 ## 1.0.3
 
 ### Patch Changes
