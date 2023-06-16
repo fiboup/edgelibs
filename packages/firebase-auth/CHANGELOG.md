@@ -1,5 +1,11 @@
 # @fiboup/firebase-auth
 
+## 1.1.0
+
+### Minor Changes
+
+- [firebase-auth] add firebase refresh token api
+
 ## 1.0.3
 
 ### Patch Changes
