@@ -2,8 +2,7 @@
   "name": "@fiboup/edgelibs",
   "version": "1.0.0",
   "private": true,
-  "description": "",
-  "main": "index.js",
+  "workspaces": ["packages/**"],
   "scripts": {
     "build:firebase-auth": "pnpm -r --filter=./packages/firebase-auth run build",
     "build:hono-firebase-auth": "pnpm -r --filter=./packages/hono-firebase-auth run build"
