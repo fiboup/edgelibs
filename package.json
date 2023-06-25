@@ -2,8 +2,7 @@
   "name": "@fiboup/edgelibs",
   "version": "1.0.0",
   "private": true,
-  "description": "",
-  "main": "index.js",
+  "workspaces": ["packages/**"],
   "scripts": {
     "build:firebase-auth": "pnpm -r --filter=./packages/firebase-auth run build",
     "build:hono-firebase-auth": "pnpm -r --filter=./packages/hono-firebase-auth run build"
@@ -15,6 +14,7 @@
     "@changesets/cli": "^2.26.1",
     "eslint": "^8.39.0",
     "typescript": "^5.0.4",
-    "unbuild": "^1.2.1"
+    "unbuild": "^1.2.1",
+    "rome": "12.1.3"
   }
 }

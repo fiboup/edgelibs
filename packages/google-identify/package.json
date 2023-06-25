@@ -1,0 +1,22 @@
+{
+	"name": "@fiboup/google-identify-toolkit",
+	"version": "1.0.0",
+	"description": "Google Identify toolkit services",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs"
+		}
+	},
+	"main": "dist/index.cjs",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "unbuild"
+	},
+	"devDependencies": {
+		"unbuild": "^1.2.1"
+	}
+}

@@ -1,0 +1,43 @@
+{
+	"$schema": "./node_modules/rome/configuration_schema.json",
+	"organizeImports": {
+		"enabled": true,
+		"ignore": ["packages/**/dist", "coverage", "cache"]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentSize": 2,
+		"indentStyle": "space",
+		"lineWidth": 100,
+		"formatWithErrors": false,
+		"ignore": ["node_modules", "packages/**/node_modules", "packages/**/dist"]
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"a11y": {
+				"recommended": true
+			},
+			"complexity": {
+				"recommended": true
+			},
+			"nursery": {
+				"recommended": true
+			},
+			"correctness": {
+				"recommended": true
+			},
+			"style": {
+				"recommended": true
+			},
+			"suspicious": {
+				"recommended": true,
+				"noExplicitAny": "warn"
+			},
+			"performance": {
+				"recommended": true
+			}
+		},
+		"ignore": ["node_modules", "packages/**/node_modules", "packages/**/dist"]
+	}
+}
