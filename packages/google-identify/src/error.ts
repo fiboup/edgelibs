@@ -1,22 +1,25 @@
-import { IdentityErrorResponse } from "./google-identify.types";
+import { GoogleIdentifyErrorResponse } from "./google-identify.types";
 
-export class IdentityError extends Error {
-  readonly errorResponse: IdentityErrorResponse;
-  constructor(errorResponse: IdentityErrorResponse) {
+export class GoogleIdentityError extends Error {
+  readonly response: GoogleIdentifyErrorResponse;
+  constructor(response: GoogleIdentifyErrorResponse) {
     super();
-    this.errorResponse = errorResponse;
+    this.response = response;
   }
 
   getResponse(): Response {
+    const { code, message, status } = this.response.error;
     return new Response(
       JSON.stringify({
         success: false,
         error: {
-          message: this.errorResponse.error.message,
+          message,
+          status: code,
+          statusCode: status,
         },
       }),
       {
-        status: this.errorResponse.error.code,
+        status: code,
         headers: {
           "Content-Type": "application/json",
         },

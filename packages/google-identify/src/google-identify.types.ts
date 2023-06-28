@@ -1,13 +1,44 @@
-export type IdentityErrorResponse = {
+export type GoogleIdentifyErrorResponse = {
   error: {
     code: number;
     message: string;
-    errors: {
-      message: string;
-      reason: "invalid";
-      domain: string;
-    }[];
+    errors?: GoogleIdentifyError[];
+    status: GoogleIdentifyErrorStatusCode;
+    details: GoogleIdentifyDetailError[];
   };
+};
+
+type GoogleIdentifyError = {
+  message: string;
+  reason: string;
+  domain: string;
+};
+
+export type GoogleIdentifyErrorStatusCode =
+  | "INVALID_ARGUMENT"
+  | "INVALID_CUSTOM_TOKEN"
+  | "CREDENTIAL_MISMATCH"
+  | "TOKEN_EXPIRED"
+  | "USER_DISABLED"
+  | "USER_NOT_FOUND"
+  | "INVALID_REFRESH_TOKEN"
+  | "INVALID_GRANT_TYPE"
+  | "MISSING_REFRESH_TOKEN"
+  | "EMAIL_EXISTS"
+  | "OPERATION_NOT_ALLOWED"
+  | "TOO_MANY_ATTEMPTS_TRY_LATER"
+  | "EMAIL_NOT_FOUND"
+  | "INVALID_PASSWORD"
+  | "USER_DISABLED"
+  | "INVALID_ID_TOKEN"
+  // rome-ignore lint/nursery/noBannedTypes: Ignore type checking to make this can be flexible string type
+  | (string & {});
+
+type GoogleIdentifyDetailError = {
+  "@type": string;
+  reason: string;
+  domain: string;
+  metadata: Record<string, string>;
 };
 
 /**

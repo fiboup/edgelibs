@@ -1,4 +1,4 @@
-import { IdentityError } from "../error";
+import { GoogleIdentityError } from "../error";
 import { IDENTIFY_TOOLKIT_URL } from "../google-identify.const";
 import type { FirebaseConfigs } from "../google-identify.types";
 import type {
@@ -26,7 +26,7 @@ export async function googleAccountLookUp(
 
   const json = await response.json();
   if (!response.ok) {
-    throw new IdentityError(json);
+    throw new GoogleIdentityError(json);
   }
   return json;
 }
@@ -45,7 +45,7 @@ export async function googleAccountSignInWithPassword(
 
   const json = await response.json();
   if (!response.ok) {
-    throw new IdentityError(json);
+    throw new GoogleIdentityError(json);
   }
   return json;
 }
@@ -64,7 +64,7 @@ export async function googleAccountSignUp(
 
   const json = await response.json();
   if (!response.ok) {
-    throw new IdentityError(json);
+    throw new GoogleIdentityError(json);
   }
   return json;
 }
