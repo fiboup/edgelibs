@@ -5,11 +5,15 @@ const SECURE_TOKEN_URL = `${SECURE_TOKEN_API_URL}/v1/token`;
 
 export async function googleExchangeToken(
   config: FirebaseConfigs,
-  payload: ExchangeTokenPayload,
+  payload: ExchangeTokenPayload
 ): Promise<ExchangeTokenResponse> {
+  const body = new URLSearchParams();
+  body.append("grant_type", payload.grant_type);
+  body.append("refresh_token", payload.refresh_token);
+
   const response = await fetch(`${SECURE_TOKEN_URL}?key=${config.apiKey}`, {
     method: "POST",
-    body: JSON.stringify(payload),
+    body,
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
