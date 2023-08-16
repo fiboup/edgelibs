@@ -52,7 +52,7 @@ app.use(
         validateFirebaseAuth({
           // Note: Go to your Firebase project, then visit Project settings for the project id***
           projectId: "TEST",
-          // If ignore this filed, default is `user`
+          // If you ignore this field, default is `user`
           userContextKey: "currentUser",
           transformCurrentUser(user) {
             return {
