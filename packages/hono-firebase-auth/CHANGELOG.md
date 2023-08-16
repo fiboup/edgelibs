@@ -1,13 +1,5 @@
 # @fiboup/hono-firebase-auth
 
-## 1.0.5
-
-### Patch Changes
-
-- Update typings more elegant
-- Updated dependencies
-  - @fiboup/firebase-auth@1.1.1
-
 ## 1.0.4
 
 ### Patch Changes

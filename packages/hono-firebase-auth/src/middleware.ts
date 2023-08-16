@@ -1,6 +1,9 @@
-import { fetchGooglePublicKeys, verifyAndDecodeJwt } from "@fiboup/firebase-auth";
-import type { DecodedIdToken } from "@fiboup/firebase-auth";
 import { MiddlewareHandler } from "hono";
+import {
+  fetchGooglePublicKeys,
+  verifyAndDecodeJwt,
+} from "@fiboup/firebase-auth";
+import type { DecodedIdToken } from "@fiboup/firebase-auth";
 
 const tokenPrefix = "Bearer ";
 const defaultCurrentUserContextKey = "currentUser";
@@ -20,7 +23,9 @@ export const defaultTransformCurrentUser = (decodedToken: DecodedIdToken) => {
   return decodedToken;
 };
 
-export const validateFirebaseAuth = (config: FirebaseAuthConfig): MiddlewareHandler => {
+export const validateFirebaseAuth = (
+  config: FirebaseAuthConfig
+): MiddlewareHandler => {
   return async (c, next) => {
     const tokenHeader = c.req.headers.get("Authorization") || "";
     if (!tokenHeader.startsWith(tokenPrefix)) {
@@ -29,13 +34,21 @@ export const validateFirebaseAuth = (config: FirebaseAuthConfig): MiddlewareHand
     const token = tokenHeader.substring(tokenPrefix.length);
     const googlePublicKeys = await fetchGooglePublicKeys();
 
-    const decodedToken = await verifyAndDecodeJwt(token, googlePublicKeys, config.projectId);
+    const decodedToken = await verifyAndDecodeJwt(
+      token,
+      googlePublicKeys,
+      config.projectId
+    );
 
-    const transformCurrentUser = config.transformCurrentUser || defaultTransformCurrentUser;
+    const transformCurrentUser =
+      config.transformCurrentUser || defaultTransformCurrentUser;
     const currentUser = transformCurrentUser(decodedToken);
 
     if (config.currentUserContextKey !== "") {
-      c.set(config.currentUserContextKey ?? defaultCurrentUserContextKey, currentUser);
+      c.set(
+        config.currentUserContextKey ?? defaultCurrentUserContextKey,
+        currentUser
+      );
     }
 
     await next();

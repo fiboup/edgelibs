@@ -1,51 +1,6 @@
-import { JwtDecodeError } from "./error";
 import { decodeProtectedHeader, importX509, jwtVerify } from "jose";
+import { JwtDecodeError } from "./error";
 
-/**
- * Information about the sign in event, including which sign in provider was
- * used and provider-specific identity details.
- *
- * This data is provided by the Firebase Authentication service and is a
- * reserved claim in the ID token.
- */
-export interface DecodedFirebaseIdToken extends Record<string, any> {
-  /**
-   * Provider-specific identity details corresponding
-   * to the provider used to sign in the user.
-   */
-  identities: Record<string, any>;
-
-  /**
-   * The ID of the provider used to sign in the user.
-   * One of `"anonymous"`, `"password"`, `"facebook.com"`, `"github.com"`,
-   * `"google.com"`, `"twitter.com"`, `"apple.com"`, `"microsoft.com"`,
-   * `"yahoo.com"`, `"phone"`, `"playgames.google.com"`, `"gc.apple.com"`,
-   * or `"custom"`.
-   *
-   * Additional Identity Platform provider IDs include `"linkedin.com"`,
-   * OIDC and SAML identity providers prefixed with `"saml."` and `"oidc."`
-   * respectively.
-   */
-  sign_in_provider: string;
-
-  /**
-   * The type identifier or `factorId` of the second factor, provided the
-   * ID token was obtained from a multi-factor authenticated user.
-   * For phone, this is `"phone"`.
-   */
-  sign_in_second_factor?: string;
-
-  /**
-   * The `uid` of the second factor used to sign in, provided the
-   * ID token was obtained from a multi-factor authenticated user.
-   */
-  second_factor_identifier?: string;
-
-  /**
-   * The ID of the tenant the user belongs to, if available.
-   */
-  tenant?: string;
-}
 export interface DecodedIdToken {
   /**
    * The audience for which this token is intended.
@@ -87,7 +42,54 @@ export interface DecodedIdToken {
    */
   exp: number;
 
-  firebase: DecodedFirebaseIdToken;
+  /**
+   * Information about the sign in event, including which sign in provider was
+   * used and provider-specific identity details.
+   *
+   * This data is provided by the Firebase Authentication service and is a
+   * reserved claim in the ID token.
+   */
+  firebase: {
+    /**
+     * Provider-specific identity details corresponding
+     * to the provider used to sign in the user.
+     */
+    identities: {
+      [key: string]: any;
+    };
+
+    /**
+     * The ID of the provider used to sign in the user.
+     * One of `"anonymous"`, `"password"`, `"facebook.com"`, `"github.com"`,
+     * `"google.com"`, `"twitter.com"`, `"apple.com"`, `"microsoft.com"`,
+     * `"yahoo.com"`, `"phone"`, `"playgames.google.com"`, `"gc.apple.com"`,
+     * or `"custom"`.
+     *
+     * Additional Identity Platform provider IDs include `"linkedin.com"`,
+     * OIDC and SAML identity providers prefixed with `"saml."` and `"oidc."`
+     * respectively.
+     */
+    sign_in_provider: string;
+
+    /**
+     * The type identifier or `factorId` of the second factor, provided the
+     * ID token was obtained from a multi-factor authenticated user.
+     * For phone, this is `"phone"`.
+     */
+    sign_in_second_factor?: string;
+
+    /**
+     * The `uid` of the second factor used to sign in, provided the
+     * ID token was obtained from a multi-factor authenticated user.
+     */
+    second_factor_identifier?: string;
+
+    /**
+     * The ID of the tenant the user belongs to, if available.
+     */
+    tenant?: string;
+    [key: string]: any;
+  };
 
   /**
    * The ID token's issued-at time, in seconds since the Unix epoch. That is, the
@@ -144,7 +146,7 @@ export interface DecodedIdToken {
 export const verifyAndDecodeJwt = async (
   jwtToken: string,
   publicKeys: Record<string, string>,
-  projectId: string,
+  projectId: string
 ): Promise<DecodedIdToken> => {
   try {
     const { kid } = await decodeProtectedHeader(jwtToken);
@@ -152,7 +154,9 @@ export const verifyAndDecodeJwt = async (
       throw new TypeError("invalid jwt header does not contain kid");
     }
     if (!publicKeys[kid]) {
-      throw new TypeError("invalid kid or google public key has been updated recently");
+      throw new TypeError(
+        "invalid kid or google public key has been updated recently"
+      );
     }
     const x509 = publicKeys[kid];
     const publicKey = await importX509(x509, "RS256");

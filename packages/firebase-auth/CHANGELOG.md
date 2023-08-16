@@ -1,11 +1,5 @@
 # @fiboup/firebase-auth
 
-## 1.1.1
-
-### Patch Changes
-
-- Update typings more elegant
-
 ## 1.1.0
 
 ### Minor Changes
