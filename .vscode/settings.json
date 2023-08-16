@@ -1,8 +1,15 @@
 {
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.rome": true,
+    "quickfix.rome": true
+  },
   "editor.rulers": [100],
   "editor.defaultFormatter": "rome.rome",
   "cSpell.words": [
-    "fiboup"
-  ]
+    "edgelibs",
+    "fiboup",
+    "hono"
+  ],
+
 }
