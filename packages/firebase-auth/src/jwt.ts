@@ -8,7 +8,7 @@ import { decodeProtectedHeader, importX509, jwtVerify } from "jose";
  * This data is provided by the Firebase Authentication service and is a
  * reserved claim in the ID token.
  */
-export interface DecodedFirebase extends Record<string, any> {
+export interface DecodedFirebaseIdToken extends Record<string, any> {
   /**
    * Provider-specific identity details corresponding
    * to the provider used to sign in the user.
@@ -87,7 +87,7 @@ export interface DecodedIdToken {
    */
   exp: number;
 
-  firebase: DecodedFirebase;
+  firebase: DecodedFirebaseIdToken;
 
   /**
    * The ID token's issued-at time, in seconds since the Unix epoch. That is, the
