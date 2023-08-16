@@ -2,7 +2,7 @@
   "name": "@fiboup/h3-firebase-auth",
   "author": "Harry Tran <nhattq.coding@gmail.com>",
   "license": "MIT",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Firebase Authentication for H3",
   "type": "module",
   "repository": {
@@ -24,10 +24,17 @@
   "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
-      "*": ["*", "dist/*", "dist/*.d.ts", "dist/*/index.d.ts"]
+      "*": [
+        "*",
+        "dist/*",
+        "dist/*.d.ts",
+        "dist/*/index.d.ts"
+      ]
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "unbuild",
     "test": "vitest"
@@ -41,5 +48,12 @@
   "dependencies": {
     "@fiboup/firebase-auth": "workspace:*"
   },
-  "keywords": ["firebase", "auth", "cloud identity", "identity platform", "CIAM", "h3"]
+  "keywords": [
+    "firebase",
+    "auth",
+    "cloud identity",
+    "identity platform",
+    "CIAM",
+    "h3"
+  ]
 }
