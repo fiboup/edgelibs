@@ -1,8 +1,4 @@
-export class JwtDecodeError extends Error {
-  constructor(error: string) {
-    super(error);
-  }
-}
+export class JwtDecodeError extends Error {}
 
 export type IdentityErrorResponse = {
   error: {
@@ -36,7 +32,7 @@ export class IdentityError extends Error {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
   }
 }
