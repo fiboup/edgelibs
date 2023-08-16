@@ -2,22 +2,24 @@
   "name": "@fiboup/edgelibs",
   "version": "1.0.0",
   "private": true,
-  "workspaces": [
-    "packages/**"
-  ],
+  "workspaces": ["packages/**"],
   "scripts": {
     "build": "pnpm -r --parallel run build",
     "build:firebase-auth": "pnpm -r --filter=./packages/firebase-auth run build",
-    "build:hono-firebase-auth": "pnpm -r --filter=./packages/hono-firebase-auth run build"
+    "build:hono-firebase-auth": "pnpm -r --filter=./packages/hono-firebase-auth run build",
+    "lint.format": "rome check --apply-unsafe packages/**/*.ts packages/**/**/*.ts",
+    "lint.check": "rome check packages/**/*.ts packages/**/**/*.ts"
   },
   "keywords": [],
   "author": "Hieu Tran <hieutran.fu@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
-    "eslint": "^8.39.0",
+    "@types/supertest": "2.0.12",
     "rome": "12.1.3",
-    "typescript": "^5.1.5",
-    "unbuild": "^1.2.1"
+    "typescript": "^5.1.6",
+    "unbuild": "^1.2.1",
+    "vitest": "0.34.1",
+    "supertest": "6.3.3"
   }
 }
