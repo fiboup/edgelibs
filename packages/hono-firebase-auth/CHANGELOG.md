@@ -1,5 +1,11 @@
 # @fiboup/hono-firebase-auth
 
+## 1.0.5
+
+### Patch Changes
+
+- use Hono req header function to get request header
+
 ## 1.0.4
 
 ### Patch Changes

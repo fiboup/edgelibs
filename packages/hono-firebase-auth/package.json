@@ -1,6 +1,6 @@
 {
   "name": "@fiboup/hono-firebase-auth",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Firebase Authentication for Hono",
   "type": "module",
   "repository": {
