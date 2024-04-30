@@ -1,9 +1,9 @@
-import { MiddlewareHandler } from "hono";
 import {
   fetchGooglePublicKeys,
   verifyAndDecodeJwt,
 } from "@fiboup/firebase-auth";
 import type { DecodedIdToken } from "@fiboup/firebase-auth";
+import { MiddlewareHandler } from "hono";
 
 const tokenPrefix = "Bearer ";
 const defaultCurrentUserContextKey = "currentUser";
@@ -27,7 +27,7 @@ export const validateFirebaseAuth = (
   config: FirebaseAuthConfig
 ): MiddlewareHandler => {
   return async (c, next) => {
-    const tokenHeader = c.req.headers.get("Authorization") || "";
+    const tokenHeader = c.req.header("Authorization") || "";
     if (!tokenHeader.startsWith(tokenPrefix)) {
       return await next();
     }
