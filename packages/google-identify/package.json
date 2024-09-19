@@ -1,6 +1,6 @@
 {
   "name": "@fiboup/google-identify-toolkit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Google Identify toolkit services",
   "exports": {
     ".": {

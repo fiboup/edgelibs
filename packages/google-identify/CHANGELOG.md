@@ -1,5 +1,11 @@
 # @fiboup/google-identify-toolkit
 
+## 1.0.2
+
+### Patch Changes
+
+- CommonJS support for google identity toolkit
+
 ## 1.0.1
 
 ### Patch Changes
