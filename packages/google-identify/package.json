@@ -1,22 +1,23 @@
 {
-	"name": "@fiboup/google-identify-toolkit",
-	"version": "1.0.1",
-	"description": "Google Identify toolkit services",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs"
-		}
-	},
-	"main": "dist/index.cjs",
-	"types": "dist/index.d.ts",
-	"files": [
-		"dist"
-	],
-	"scripts": {
-		"build": "unbuild"
-	},
-	"devDependencies": {
-		"unbuild": "^1.2.1"
-	}
+  "name": "@fiboup/google-identify-toolkit",
+  "version": "1.0.1",
+  "description": "Google Identify toolkit services",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild"
+  },
+  "devDependencies": {
+    "unbuild": "^1.2.1"
+  }
 }
