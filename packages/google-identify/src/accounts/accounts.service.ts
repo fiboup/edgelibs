@@ -14,7 +14,7 @@ const ACCOUNT_URL = `${IDENTIFY_TOOLKIT_URL}/v1/accounts`;
 
 export async function googleAccountLookUp(
   config: FirebaseConfigs,
-  payload: LookUpPayload,
+  payload: LookUpPayload
 ): Promise<GetAccountInfoResponse> {
   const response = await fetch(`${ACCOUNT_URL}:lookup?key=${config.apiKey}`, {
     method: "POST",
@@ -33,15 +33,18 @@ export async function googleAccountLookUp(
 
 export async function googleAccountSignInWithPassword(
   config: FirebaseConfigs,
-  payload: SignInWithPasswordPayload,
+  payload: SignInWithPasswordPayload
 ): Promise<VerifyPasswordResponse> {
-  const response = await fetch(`${ACCOUNT_URL}:signInWithPassword?key=${config.apiKey}`, {
-    method: "POST",
-    body: JSON.stringify(payload),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const response = await fetch(
+    `${ACCOUNT_URL}:signInWithPassword?key=${config.apiKey}`,
+    {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
   const json = await response.json();
   if (!response.ok) {
@@ -52,9 +55,9 @@ export async function googleAccountSignInWithPassword(
 
 export async function googleAccountSignUp(
   config: FirebaseConfigs,
-  payload: SignUpPayload,
+  payload: SignUpPayload
 ): Promise<SignUpResponse> {
-  const response = await fetch(`${ACCOUNT_URL}:signInWithPassword?key=${config.apiKey}`, {
+  const response = await fetch(`${ACCOUNT_URL}:signUp?key=${config.apiKey}`, {
     method: "POST",
     body: JSON.stringify(payload),
     headers: {

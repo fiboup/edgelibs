@@ -146,27 +146,12 @@ export type VerifyPasswordResponse = {
 export type SignUpPayload = {
   email: string;
   password: string;
-  displayName: string;
-  captchaChallenge: string;
-  captchaResponse: string;
-  instanceId: string;
-  idToken: string;
-  emailVerified: boolean;
-  photoUrl: string;
-  disabled: boolean;
-  localId: string;
-  phoneNumber: string;
-  tenantId: string;
-  targetProjectId: string;
-  mfaInfo: MfaFactor[];
-  clientType: ClientType;
-  recaptchaVersion: RecaptchaVersion;
+  returnSecureToken?: boolean;
+  tenantId?: string;
 };
 
 export type SignUpResponse = {
-  kind: string;
   idToken: string;
-  displayName: string;
   email: string;
   refreshToken: string;
   expiresIn: string;
