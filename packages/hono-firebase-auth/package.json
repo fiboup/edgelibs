@@ -1,6 +1,6 @@
 {
   "name": "@fiboup/hono-firebase-auth",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Firebase Authentication for Hono",
   "type": "module",
   "repository": {
@@ -48,10 +48,10 @@
   "author": "Hieu Tran <hieutran.fu@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "hono": "^3.2.6"
+    "hono": "^3.12.12"
   },
   "peerDependencies": {
-    "hono": "^3.1.8"
+    "hono": "^3.12.12"
   },
   "dependencies": {
     "@fiboup/firebase-auth": "workspace:^1.0.3"

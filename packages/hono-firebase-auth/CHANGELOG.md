@@ -1,5 +1,11 @@
 # @fiboup/hono-firebase-auth
 
+## 1.0.6
+
+### Patch Changes
+
+- update hono version
+
 ## 1.0.5
 
 ### Patch Changes
